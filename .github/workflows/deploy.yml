@@ -69,6 +69,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: steve-todorov/oidc-debugger-action@v1
+
       - uses: object-Object/ci/setup@v0
         with:
           node-version: ${{ env.NODE_VERSION }}
