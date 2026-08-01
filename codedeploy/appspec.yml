@@ -13,4 +13,4 @@ hooks:
       timeout: 120
   ApplicationStart:
     - location: hooks/ApplicationStart.sh
-      timeout: 240
+      timeout: 600
