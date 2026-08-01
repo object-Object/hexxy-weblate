@@ -1,0 +1,15 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit"
+    },
+    "editor.rulers": [88]
+  },
+  "ruff.organizeImports": true,
+  "ruff.lint.ignore": ["I"],
+  "python.languageServer": "Pylance",
+  "python.analysis.diagnosticMode": "workspace",
+  "files.eol": "\n",
+}

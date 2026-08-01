@@ -1,0 +1,39 @@
+services:
+  weblate:
+    depends_on:
+      - cache
+      - database
+    volumes:
+      - weblate-data:/app/data
+      - weblate-cache:/app/cache
+    env_file:
+      - ./public.env
+    read_only: true
+    restart: unless-stopped
+    tmpfs:
+      - /run
+      - /tmp
+    ports:
+      - 6100:8080
+
+  cache:
+    image: valkey/valkey:9.1.1
+    volumes:
+      - redis-data:/data
+    command: [valkey-server, --save, '60', '1', --loglevel, warning]
+    read_only: true
+    restart: unless-stopped
+
+  database:
+    image: postgres:18-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    env_file:
+      - ./public.env
+    restart: unless-stopped
+
+volumes:
+  weblate-cache:
+  weblate-data:
+  postgres-data:
+  redis-data:
