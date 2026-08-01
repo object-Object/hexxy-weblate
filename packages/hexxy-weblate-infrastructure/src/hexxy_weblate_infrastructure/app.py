@@ -15,6 +15,7 @@ def main():
 
     CodeDeployStack.default_prod_stack(
         app,
+        base_stack_name="weblate-hexxy-media",
         codedeploy_environment="codedeploy",
     )
 
