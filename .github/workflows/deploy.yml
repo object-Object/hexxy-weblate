@@ -9,7 +9,7 @@ on:
 env:
   NODE_VERSION: 24
   REGISTRY: ghcr.io
-  IMAGE_NAME: object-object/weblate.hexxy.media
+  IMAGE_NAME: object-object/hexxy-weblate
 
 jobs:
   build:

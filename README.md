@@ -1,4 +1,4 @@
-# weblate.hexxy.media
+# hexxy-weblate
 
 ## Development
 

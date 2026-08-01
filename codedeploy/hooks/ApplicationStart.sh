@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euox pipefail
 
-cd /var/lib/codedeploy-apps/weblate.hexxy.media
+cd /var/lib/codedeploy-apps/hexxy-weblate
 
 if ! docker compose up --detach --wait --wait-timeout 120 ; then
     docker compose logs
