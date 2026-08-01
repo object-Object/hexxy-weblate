@@ -16,6 +16,7 @@ def main():
     CodeDeployStack.default_prod_stack(
         app,
         codedeploy_environment="codedeploy",
+        immutable_subject_claims=True,
     )
 
     logger.info("Synthesizing.")

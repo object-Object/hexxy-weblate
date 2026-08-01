@@ -112,6 +112,22 @@ wheels = [
 ]
 
 [[package]]
+name = "cdk-github-oidc"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aws-cdk-lib" },
+    { name = "constructs" },
+    { name = "jsii" },
+    { name = "publication" },
+    { name = "typeguard" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/da/de/6c5dd978f176654f68f3212bd030032be3e978e6fab0ed5562e6878cba60/cdk_github_oidc-1.2.0.tar.gz", hash = "sha256:db60eb4ba3b59c4510fb67491b2883f0a190e2eb0ab0f3d892f4e075e13e49a3", size = 90353, upload-time = "2026-07-28T09:24:32.071Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0d/39/3d5e8b22b12d2a1c06b62032282ece4993673448833fa01806c9f83daeef/cdk_github_oidc-1.2.0-py3-none-any.whl", hash = "sha256:ebf6a9aab48aaa006c60583c67b5bd0c4e37e7258eb197271e6e2e67cb960e1a", size = 87829, upload-time = "2026-07-28T09:24:30.128Z" },
+]
+
+[[package]]
 name = "cfgv"
 version = "3.5.0"
 source = { registry = "https://pypi.org/simple" }
@@ -211,12 +227,12 @@ wheels = [
 [[package]]
 name = "object-ci"
 version = "0.1.0"
-source = { git = "https://github.com/object-Object/ci?rev=v0#ff3bc4f4204b3ba7153c247c1a73af649e5d27ad" }
+source = { git = "https://github.com/object-Object/ci?rev=v0#3c5a0abd6629b741e23fb8339ca8b07b9b83a978" }
 
 [package.optional-dependencies]
 aws-cdk = [
-    { name = "aws-cdk-github-oidc" },
     { name = "aws-cdk-lib" },
+    { name = "cdk-github-oidc" },
 ]
 
 [[package]]
