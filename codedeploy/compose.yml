@@ -8,6 +8,7 @@ services:
       - weblate-cache:/app/cache
     env_file:
       - ./public.env
+      - ./.env
     read_only: true
     restart: unless-stopped
     tmpfs:

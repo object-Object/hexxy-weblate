@@ -128,6 +128,9 @@ jobs:
         run: |
           cat <<END_OF_FILE > .env
           IMAGE="${{ needs.push-image.outputs.digest }}"
+          WEBLATE_EMAIL_HOST=${{ secrets.WEBLATE_EMAIL_HOST }}
+          WEBLATE_EMAIL_HOST_USER=${{ secrets.WEBLATE_EMAIL_HOST_USER }}
+          WEBLATE_EMAIL_HOST_PASSWORD=${{ secrets.WEBLATE_EMAIL_HOST_PASSWORD }}
           END_OF_FILE
 
       - name: Deploy application
