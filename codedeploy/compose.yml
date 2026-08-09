@@ -7,8 +7,7 @@ services:
       - weblate-data:/app/data
       - weblate-cache:/app/cache
     env_file:
-      - ./public.env
-      - ./.env
+      - ./common.env
     read_only: true
     restart: unless-stopped
     tmpfs:
@@ -30,7 +29,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql
     env_file:
-      - ./public.env
+      - ./common.env
     restart: unless-stopped
 
 volumes:

@@ -1,3 +1,6 @@
 services:
   weblate:
     image: "${IMAGE}"
+    env_file:
+      - ./prod.env
+      - ./.env

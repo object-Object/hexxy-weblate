@@ -1,3 +1,5 @@
 services:
   weblate:
     build: .
+    env_file:
+      - ./dev.env

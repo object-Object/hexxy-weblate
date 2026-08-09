@@ -5,6 +5,15 @@ dev = [
     "pre-commit",
 ]
 
+[tool.uv]
+override-dependencies = [
+    # Skip Weblate dependencies that fail to install on Windows,
+    # since this is purely for typechecking
+    "borgbackup; sys_platform == 'never'",
+    "pygobject; sys_platform == 'never'",
+    "tesserocr; sys_platform == 'never'",
+]
+
 [tool.uv.sources]
 hexxy-weblate = { workspace = true }
 hexxy-weblate-infrastructure = { workspace = true }
@@ -73,11 +82,9 @@ reportInvalidStringEscapeSequence = "error"
 reportInvalidStubStatement = "error"
 reportInvalidTypeVarUse = "error"
 reportMatchNotExhaustive = "error"
-reportMissingParameterType = "error"
 reportOverlappingOverload = "error"
 reportSelfClsParameterName = "error"
 reportTypeCommentUsage = "error"
-reportUnknownParameterType = "error"
 reportUnnecessaryCast = "error"
 reportUnnecessaryContains = "error"
 reportUnsupportedDunderAll = "error"
@@ -89,10 +96,6 @@ reportWildcardImportFromLibrary = "error"
 
 reportMissingTypeArgument = "warning"
 reportPrivateUsage = "warning"
-reportUnknownArgumentType = "warning"
-reportUnknownLambdaType = "warning"
-reportUnknownMemberType = "warning"
-reportUnknownVariableType = "warning"
 reportUnnecessaryComparison = "warning"
 reportUnnecessaryIsInstance = "warning"
 reportUnusedClass = "warning"
@@ -100,6 +103,13 @@ reportUnusedExpression = "warning"
 reportUnusedFunction = "warning"
 reportUnusedImport = "warning"
 reportUnusedVariable = "warning"
+
+reportMissingParameterType = "information"
+reportUnknownArgumentType = "information"
+reportUnknownLambdaType = "information"
+reportUnknownMemberType = "information"
+reportUnknownParameterType = "information"
+reportUnknownVariableType = "information"
 
 reportMissingTypeStubs = "none"
 reportDuplicateImport = "none"

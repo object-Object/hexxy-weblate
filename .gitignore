@@ -1,5 +1,4 @@
-*.env
-!public.env
+.env
 cdk.out/
 
 # Byte-compiled / optimized / DLL files
