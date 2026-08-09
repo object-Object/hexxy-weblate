@@ -51,7 +51,7 @@ class Json5File(JsonFile[Json5Unit]):
             # rather than treating it as an error, see RFC7159
             decoded, self.encoding = self.detect_encoding(text)
             if decoded is None:
-                raise ParseError(ValueError("Failed to decode JSON string."))
+                raise ParseError(ValueError("Failed to decode JSON5 string."))
             text = decoded
         text = self.preprocess_input(text)
         try:
