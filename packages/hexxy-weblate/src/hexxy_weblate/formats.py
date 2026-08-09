@@ -1,3 +1,4 @@
+import re
 from typing import IO, BinaryIO, TextIO, cast
 
 import json5
@@ -67,15 +68,10 @@ class Json5File(JsonFile[Json5Unit]):
             self.addunit(unit)
 
 
-class JSON5Unit(JSONUnit):
-    pass
-
-
-class JSON5Format(JSONFormat[Json5File, Json5Unit, JSON5Unit]):
+class JSON5Format(JSONFormat[Json5File, Json5Unit, JSONUnit]):
     name = gettext_lazy("JSON5 file")
     format_id = "json5"
     loader = Json5File
-    unit_class = JSON5Unit
     autoload = ("*.json5",)
     has_hierarchical_contexts = True
 
@@ -88,3 +84,30 @@ class JSON5Format(JSONFormat[Json5File, Json5Unit, JSON5Unit]):
 class JSON5Discovery(BaseDiscovery):
     file_format = "json5"
     mask = "*.json5"
+
+
+class PKPCPBPJson5Unit(Json5Unit):
+    pass
+
+
+class PKPCPBPJson5File(Json5File):
+    UnitClass = PKPCPBPJson5Unit
+
+    # replace `\<LF>       foobar` with `\<LF>foobar`
+    _newline_pattern = re.compile(r"\\\n\s*")
+
+    def preprocess_input(self, text: str):
+        return self._newline_pattern.sub("\\\n", text)
+
+
+class PKPCPBPJSON5Format(JSON5Format):
+    name = gettext_lazy("PKPCPBP JSON5 file")
+    format_id = "pkpcpbp-json5"
+    loader = PKPCPBPJson5File
+    autoload = ("*.flatten.json5",)
+
+
+@register_discovery
+class PKPCPBPJSON5Discovery(BaseDiscovery):
+    file_format = "pkpcpbp-json5"
+    mask = "*.flatten.json5"
