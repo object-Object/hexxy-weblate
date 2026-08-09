@@ -14,7 +14,7 @@ class Json5Unit(BaseJsonUnit):
         return json5.dumps(
             self.getvalue(),
             separators=(",", ": "),
-            indent=4,
+            indent=2,
             ensure_ascii=False,
         )
 
@@ -23,6 +23,10 @@ class Json5File(JsonFile[Json5Unit]):
     """Largely copied from JsonFile, replacing json with json5"""
 
     UnitClass = Json5Unit
+
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.dump_args["indent"] = 2
 
     def serialize(self, out: IO[bytes]):
         units = self.get_root_node()
