@@ -1,5 +1,5 @@
 # Keep in sync with packages/hexxy-weblate/pyproject.toml
-FROM weblate/weblate:2026.7
+FROM weblate/weblate:2026.8
 
 USER root
 
