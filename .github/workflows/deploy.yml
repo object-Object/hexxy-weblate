@@ -132,6 +132,9 @@ jobs:
           WEBLATE_EMAIL_PORT=${{ vars.WEBLATE_EMAIL_PORT }}
           WEBLATE_EMAIL_HOST_USER=${{ secrets.WEBLATE_EMAIL_HOST_USER }}
           WEBLATE_EMAIL_HOST_PASSWORD=${{ secrets.WEBLATE_EMAIL_HOST_PASSWORD }}
+          WEBLATE_GITHUB_HOST=${{ vars.WEBLATE_GITHUB_HOST }}
+          WEBLATE_GITHUB_USERNAME=${{ vars.WEBLATE_GITHUB_USERNAME }}
+          WEBLATE_GITHUB_TOKEN=${{ secrets.WEBLATE_GITHUB_TOKEN }}
           END_OF_FILE
 
       - name: Deploy application
