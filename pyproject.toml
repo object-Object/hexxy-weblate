@@ -3,6 +3,7 @@ dev = [
     "hexxy-weblate",
     "hexxy-weblate-infrastructure",
     "pre-commit",
+    "pytest",
 ]
 
 [tool.uv]
