@@ -1,3 +1,4 @@
+import pytest
 from hexxy_weblate.json5l10n import PKPCPBPJson5NestedFile
 
 TEST_DATA = b"""{
@@ -41,3 +42,22 @@ def test_roundtrip():
     store = PKPCPBPJson5NestedFile()
     store.parse(TEST_DATA)
     assert bytes(store).decode() == TEST_DATA.decode()
+
+
+@pytest.mark.parametrize(
+    ["data", "expected"],
+    [
+        (
+            b'{foo:"bar \\\n  baz"}',
+            '{\n  foo: "bar baz",\n}\n',
+        ),
+        (
+            b'{foo:"bar \\\r\n  baz"}',
+            '{\n  foo: "bar baz",\n}\n',
+        ),
+    ],
+)
+def test_backslash(data: bytes, expected: str):
+    store = PKPCPBPJson5NestedFile()
+    store.parse(data)
+    assert bytes(store).decode() == expected

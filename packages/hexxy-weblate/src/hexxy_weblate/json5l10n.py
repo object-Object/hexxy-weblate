@@ -70,10 +70,10 @@ class Json5File(JsonFile[Json5Unit]):
 
 class BasePKPCPBPJson5File(Json5File):
     # replace `\<LF>       foobar` with `\<LF>foobar`
-    _newline_pattern = re.compile(r"\\\n\s*")
+    _newline_pattern = re.compile(r"(\\\r?\n)\s*")
 
     def preprocess_input(self, text: str):
-        return self._newline_pattern.sub("\\\n", text)
+        return self._newline_pattern.sub(r"\1", text)
 
 
 class PKPCPBPJson5Unit(Json5Unit):
