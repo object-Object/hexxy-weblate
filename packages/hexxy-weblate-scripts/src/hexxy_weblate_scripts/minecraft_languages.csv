@@ -1,0 +1,148 @@
+# process:
+# - copy the full table from https://minecraft.wiki/w/Language#Languages
+# - paste into Google Sheets
+# - select only the columns "Language (in English)", "JE", and "language.code"
+language	JE	code
+Afrikaans	af_za	afr_ZA
+Arabic	ar_sa	ara_SA
+Asturian	ast_es	ast_ES
+Azerbaijani	az_az	aze_AZ
+Bashkir	ba_ru	bak_RU-BA
+Bavarian	bar	bar_DE
+Belarusian (Cyrillic)	be_by	bel_BY
+Belarusian (Latin)	be_latn	bel-Latn_BY
+Bulgarian	bg_bg	bul_BG
+Breton	br_fr	bre_FR
+Brabantian	brb	qbr_NL
+Bosnian	bs_ba	bos_BA
+Catalan	ca_es	cat_ES
+Chuvash	cv_cu	chv_RU-CU
+Czech	cs_cz	ces_CZ
+Welsh	cy_gb	cym_GB
+Danish	da_dk	dan_DK
+Austrian German	de_at	bar_AT
+Swiss German	de_ch	gsw_CH
+German	de_de	deu_DE
+Greek	el_gr	ell_GR
+Australian English	en_au	eng_AU
+Canadian English	en_ca	eng_CA
+British English	en_gb	eng_GB
+New Zealand English	en_nz	eng_NZ
+Pirate English	en_pt	qpe
+Upside down British English	en_ud	eng-Qabs_GB
+American English	en_us	en_us
+Modern English minus borrowed words[note 3]	enp	qep
+Early Modern English	enws	qes
+Esperanto	eo_uy	epo
+Argentinian Spanish	es_ar	spa_AR
+Chilean Spanish	es_cl	spa_CL
+Ecuadorian Spanish	es_ec	spa_EC
+European Spanish	es_es	spa_ES
+Mexican Spanish	es_mx	spa_MX
+Uruguayan Spanish	es_uy	spa_UY
+Venezuelan Spanish	es_ve	spa_VE
+Andalusian	esan	spa_ES-AN
+Estonian	et_ee	est_EE
+Basque	eu_es	eus_ES
+Persian	fa_ir	fas_IR
+Finnish	fi_fi	fin_FI
+Filipino	fil_ph	fil_PH
+Faroese	fo_fo	fao_FO
+Canadian French	fr_ca	fra_CA
+Swiss French	fr_ch	fra_CH
+European French	fr_fr	fra_FR
+East Franconian	fra_de	vmf_DE
+Friulian	fur_it	fur_IT
+Frisian	fy_nl	fry_NL
+Irish	ga_ie	gle_IE
+Scottish Gaelic	gd_gb	gla_GB
+Galician	gl_es	glg_ES
+Gallo	go_fr	qga_FR
+Gothic	got_de	got
+Halychian	hal_ua	qha_UA
+Hawaiian	haw_us	haw_US
+Hebrew	he_il	heb_IL
+Hindi	hi_in	hin_IN
+High Norwegian	hn_no	qho
+Croatian	hr_hr	hrv_HR
+Hungarian	hu_hu	hun_HU
+Armenian	hy_am	hye_AM
+Indonesian	id_id	ind_ID
+Igbo	ig_ng	ibo_NG
+Ido	io_en	ido
+Icelandic	is_is	isl_IS
+Interslavic	isv	qis
+Italian	it_it	ita_IT
+Japanese	ja_jp	jpn_JP
+Lojban	jbo_en	jbo
+Georgian	ka_ge	kat_GE
+Kazakh	kk_kz	kaz_KZ
+Kannada	kn_in	kan_IN
+Korean	ko_kr	kor_KR
+Kölsch/Ripuarian	ksh	ksh_DE
+Cornish	kw_gb	cor_GB
+Kyrgyz	ky_kg	kir_KG
+Latin	la_la	lat_VA
+Luxembourgish	lb_lu	ltz_LU
+Limburgish	li_li	lim_NL
+Lombard	lmo	lmo_IT
+Lao	lo_la	lao_LA
+LOLCAT	lol_us	qll
+Lithuanian	lt_lt	lit_LT
+Latvian	lv_lv	lav_LV
+Literary Chinese	lzh	lzh
+Macedonian	mk_mk	mkd_MK
+Mongolian	mn_mn	mon_MN
+Malay	ms_my	zlm_MY
+Maltese	mt_mt	mlt_MT
+Nahuatl	nah	nhe_MX
+Low German	nds_de	nds_DE
+Dutch, Flemish	nl_be	nld_BE
+Dutch	nl_nl	nld_NL
+Norwegian Nynorsk	nn_no	nno_NO
+Norwegian Bokmål	no_no	nob_NO
+Occitan	oc_fr	oci_FR
+Elfdalian	ovd	ovd_SE
+Polish	pl_pl	pol_PL
+Popoloca	pls	pls_MX
+Brazilian Portuguese	pt_br	por_BR
+European Portuguese	pt_pt	por_PT
+Cantabrian	qcb_es	qcb_ES
+Indonesian (Pre-reform spelling)[note 4]	qid	qid_ID
+Quenya (Form of Elvish from The Lord of the Rings)	qya_aa	qya
+Romanian	ro_ro	ron_RO
+Russian (Pre-revolutionary)	rpr	qpr
+Russian	ru_ru	rus_RU
+Rusyn	ry_ua	rue_UA
+Yakut	sah_sah	sah_RU
+Northern Sami	se_no	sme_NO
+Slovak	sk_sk	slk_SK
+Slovenian	sl_si	slv_SI
+Somali	so_so	som_SO
+Albanian	sq_al	sqi_AL
+Serbian (Latin)	sr_cs	srp-Latn_RS
+Serbian (Cyrillic)	sr_sp	srp-Cyrl_RS
+Swedish	sv_se	swe_SE
+Upper Saxon German	sxu	sxu_DE
+Silesian	szl	szl_PL
+Tamil	ta_in	tam_IN
+Thai	th_th	tha_TH
+Tagalog	tl_ph	tgl_PH
+Klingon	tlh_aa	tlh
+Toki Pona	tok	tok
+Turkish	tr_tr	tur_TR
+Tatar	tt_ru	tat_RU
+Tzotzil	tzo_mx	tzo_MX
+Ukrainian	uk_ua	ukr_UA
+Uzbek	uz_uz	uzb_UZ
+Valencian	val_es	cat_ES-VC
+Venetian	vec_it	vec_IT
+Võro	vro	vro_EE
+Vietnamese	vi_vn	vie_VN
+Viossa	vp_vl	qpv_QP
+Yiddish	yi_de	yid_IL
+Yoruba	yo_ng	yor_NG
+Chinese Simplified (Chinese Mainland; Mandarin[note 5])	zh_cn	zho-Hans_CN[note 6]
+Chinese Traditional (Hong Kong SAR)[note 7]	zh_hk	zho-Hant_HK
+Chinese Traditional (Taiwan; Mandarin[note 8])	zh_tw	zho-Hant_TW[note 9]
+Malay (Jawi)	zlm_arab	zlm-Arab_MY

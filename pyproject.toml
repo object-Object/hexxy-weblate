@@ -2,6 +2,7 @@
 dev = [
     "hexxy-weblate",
     "hexxy-weblate-infrastructure",
+    "poethepoet>=0.48.0",
     "pre-commit",
     "pytest",
 ]
@@ -21,6 +22,9 @@ hexxy-weblate-infrastructure = { workspace = true }
 
 [tool.uv.workspace]
 members = ["packages/*"]
+
+[tool.poe.tasks]
+script = "python -m hexxy_weblate_scripts.app"
 
 [tool.ruff]
 preview = true
