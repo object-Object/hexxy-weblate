@@ -1,0 +1,38 @@
+name: Weblate project
+description: Request a new Weblate workspace for your Hex Casting-related project
+labels:
+  - project
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please [read the Hexxy Weblate guide](https://gist.github.com/object-Object/e1e34ce52f40f1d5a96a86f5b6f1354b) before filling out this form.
+
+  - type: input
+    attributes:
+      label: Weblate username
+      description: What is the username of your Hexxy Weblate account? If you have not yet created an account, please [do so now](https://weblate.hexxy.media/accounts/register/) - you can register a new account with your email address, or sign up with Google or GitHub. Please note that the name and email address that you provide will be included in all Git commits attributed to you by Weblate; you do not need to provide your real name.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Weblate workspace
+      description: What should your Weblate workspace be called? If you already have a workspace on Hexxy Weblate, paste a link to it here. For example, the workspace containing Hex Casting is called "Falling Colors", and the workspace containing HexDebug is called "object-Object".
+      placeholder: Falling Colors
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Git repository
+      description: Which Git repository (e.g. GitHub repo, Codeberg repo) contains the files you want to translate?
+      placeholder: https://github.com/FallingColors/HexMod
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Other information
+      description: Provide any additional context, comments, or requests here.
