@@ -19,7 +19,7 @@ body:
   - type: input
     attributes:
       label: Weblate workspace
-      description: What should your Weblate workspace be called? If you already have a workspace on Hexxy Weblate, paste a link to it here. For example, the workspace containing Hex Casting is called "Falling Colors", and the workspace containing HexDebug is called "object-Object".
+      description: What should your Weblate workspace be called? For example, the workspace containing Hex Casting is called "Falling Colors", and the workspace containing HexDebug is called "object-Object".
       placeholder: Falling Colors
     validations:
       required: true
