@@ -8,6 +8,7 @@ dev = [
 ]
 
 [tool.uv]
+find-links = ["libs"]
 override-dependencies = [
     # Skip Weblate dependencies that fail to install on Windows,
     # since this is purely for typechecking

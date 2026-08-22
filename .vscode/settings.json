@@ -13,6 +13,8 @@
   "python.analysis.diagnosticMode": "workspace",
   "files.eol": "\n",
   "python.analysis.packageIndexDepths": [
+    { "name": "django", "depth": 3 },
+    { "name": "hexdoc", "depth": 3 },
     { "name": "translation_finder", "depth": 3 },
     { "name": "translate", "depth": 3 },
     { "name": "weblate", "depth": 3 },
