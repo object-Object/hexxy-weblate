@@ -5,12 +5,15 @@ from typing import Any, override
 
 from django.dispatch import receiver
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext, gettext_lazy
 from git import TYPE_CHECKING
 from hexdoc.core import I18n, ResourceLocation
 from hexdoc.core.properties import LangProps
+from hexdoc.jinja.render import create_jinja_env_with_loader
 from hexdoc.patchouli import FormatTree
 from hexdoc.patchouli.text import DEFAULT_MACROS
+from jinja2 import PackageLoader
 from pydantic import BaseModel, Field
 from weblate.checks.base import TargetCheck
 from weblate.trans.signals import vcs_post_update
@@ -32,49 +35,51 @@ class PatchouliFormattingCheck(TargetCheck):
         "Patchouli text formatting should be syntactically valid."
     )
     default_disabled = True
+    always_display = True
 
     @override
     def check_single(self, source: str, target: str, unit: Unit):  # pyright: ignore[reportIncompatibleMethodOverride]
         try:
-            self._format_string(target, unit)
+            self._render_string(target, unit)
             return None
         except Exception as e:  # noqa: BLE001
             return str(e)
 
     @override
     def get_description(self, check_obj: Check) -> str:
-        messages = set[str]()
         unit: Unit = check_obj.unit
-        source: str = unit.source_string
-        for target in unit.get_target_plurals():
-            if message := self.check_single(source, target, unit):
-                messages.add(message)
-        if not messages:
-            return self.description
-        return format_html(
-            "{} {}",
-            gettext("Failed to parse Patchouli formatting:"),
-            format_html_join_comma(
-                "<code>{}</code>", ((message,) for message in sorted(messages))
-            ),
-        )
 
-    def _format_string(self, string: str, unit: Unit):
-        return FormatTree.format(
+        previews = list[str]()
+        errors = list[str]()
+        for target in unit.get_target_plurals():
+            try:
+                previews.append(self._render_string(target, unit))
+            except Exception as e:  # noqa: BLE001
+                errors.append(str(e))
+
+        if errors:
+            return format_html(
+                "{} {}",
+                gettext("Failed to parse Patchouli formatting:"),
+                format_html_join_comma(
+                    "<code>{}</code>", ((error,) for error in sorted(errors))
+                ),
+            )
+        else:
+            return mark_safe("<hr>".join(previews))
+
+    def _render_string(self, string: str, unit: Unit):
+        tree = FormatTree.format(
             string,
             book_id=ResourceLocation("patchouli", "example"),
-            i18n=I18n(
-                lookup={},
-                lang="en_us",
-                default_i18n=None,
-                enabled=False,
-                lang_props=LangProps(quiet=True, ignore_errors=True),
-            ),
+            i18n=i18n,
             macros=DEFAULT_MACROS | self._get_macros(unit),
             is_0_black=False,
             pm=FakePluginManager(),  # pyright: ignore[reportArgumentType] # lie
             link_overrides={},
         )
+
+        return styled_template.render(text=tree, page_url="").strip()
 
     def _get_macros(self, unit: Unit) -> dict[str, str]:
         flags = unit.all_flags
@@ -106,6 +111,14 @@ class PatchouliFormattingCheck(TargetCheck):
 
 class Book(BaseModel):
     macros: dict[str, str] = Field(default_factory=dict)
+
+
+class FakeBookLinks:
+    def __contains__(self, item: Any):
+        return True
+
+    def __getitem__(self, key: Any):
+        return "#" + key.replace("#", "@")
 
 
 class FakePluginManager:
@@ -141,6 +154,26 @@ def validate_relative_path(path: Path):
         if value in str(path):
             raise ValueError("Value must be a plain relative path")
 
+
+jinja_env = create_jinja_env_with_loader(PackageLoader("hexdoc", "_templates"))
+jinja_env.autoescape = False
+styled_template = jinja_env.from_string(
+    r"""
+    {%- import "macros/formatting.html.jinja" as fmt with context -%}
+    {{- fmt.styled(text) if text else "" -}}
+    """,
+    globals={
+        "book_links": FakeBookLinks(),
+    },
+)
+
+i18n = I18n(
+    lookup={},
+    lang="en_us",
+    default_i18n=None,
+    enabled=False,
+    lang_props=LangProps(quiet=True, ignore_errors=True),
+)
 
 # moved below PatchouliFormattingCheck to avoid circular imports
 from weblate.checks.flags import TYPED_FLAGS, TYPED_FLAGS_ARGS
