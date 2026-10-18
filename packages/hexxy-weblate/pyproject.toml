@@ -11,5 +11,5 @@ dependencies = [
     # Keep in sync with Dockerfile
     "hexdoc~=2.0rc1",
     # Keep in sync with Dockerfile
-    "weblate~=2026.8.1",
+    "weblate~=2026.10.1",
 ]
